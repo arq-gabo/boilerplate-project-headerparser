@@ -25,12 +25,11 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/whoami", (req, res) => {
+  app.enable("trust proxy");
+
   res.json({
     ipaddress: req.ip,
-    language: req.headers["accept-language"],
-    software: req.headers["user-agent"],
   });
-  console.log(req.ip);
 });
 
 // listen for requests :)
